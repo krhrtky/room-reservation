@@ -26,26 +26,31 @@
       required
     />
 
-    <date-picker/>
-    <h3>Start Time</h3>
-    <time-selector/>
-    <h3>End Time</h3>
-    <time-selector/>
+    <v-flex
+      xs12
+      sm6
+      d-flex>
+      <date-picker/>
+      <time-picker label="Start Time"/>
+      <time-picker label="End Time"/>
+    </v-flex>
   </v-form>
 </template>
 
 <script>
 import DatePicker from './common/DatePicker'
-import TimeSelector from './common/TimeSelector'
+import TimePicker from './common/TimePicker'
 
 export default {
   name: 'ReserveForm',
   components: {
-    TimeSelector,
+    TimePicker,
     DatePicker
   },
   data: () => ({
     valid: true,
+    startTime: '',
+    endTime: '',
     name: '',
     nameRules: [
       v => !!v || 'Name is required',
